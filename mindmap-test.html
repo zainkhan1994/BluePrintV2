@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMapViewer Tests</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 40px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .test-result {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .test-result.pass {
+            background: rgba(46, 213, 115, 0.1);
+            border: 1px solid rgba(46, 213, 115, 0.3);
+            color: #2ed573;
+        }
+        .test-result.fail {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            color: #ff6b6b;
+        }
+        .test-result.pending {
+            background: rgba(255, 159, 67, 0.1);
+            border: 1px solid rgba(255, 159, 67, 0.3);
+            color: #ff9f43;
+        }
+        .summary {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .summary-item {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .summary-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .summary-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        #test-viewer {
+            height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/mindmap.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MindMapViewer Tests</h1>
+        <p class="subtitle">Automated tests for the interactive mind map viewer component</p>
+
+        <div class="test-section">
+            <div class="test-title">
+                <i class="fas fa-vial"></i>
+                Component Tests
+            </div>
+            <div id="component-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">
+                <i class="fas fa-mouse-pointer"></i>
+                Interaction Tests
+            </div>
+            <div id="interaction-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">
+                <i class="fas fa-desktop"></i>
+                Visual Test
+            </div>
+            <div id="test-viewer"></div>
+            <button id="run-visual-test">Run Visual Test</button>
+        </div>
+
+        <div class="summary">
+            <div class="summary-item" style="border: 2px solid #2ed573;">
+                <div class="summary-number" style="color: #2ed573;" id="pass-count">0</div>
+                <div class="summary-label">Passed</div>
+            </div>
+            <div class="summary-item" style="border: 2px solid #ff6b6b;">
+                <div class="summary-number" style="color: #ff6b6b;" id="fail-count">0</div>
+                <div class="summary-label">Failed</div>
+            </div>
+            <div class="summary-item" style="border: 2px solid #4a9eff;">
+                <div class="summary-number" style="color: #4a9eff;" id="total-count">0</div>
+                <div class="summary-label">Total</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="MindMapViewer.js"></script>
+    <script>
+        let passCount = 0;
+        let failCount = 0;
+        let totalCount = 0;
+
+        function addTestResult(container, testName, passed, message = '') {
+            totalCount++;
+            if (passed) {
+                passCount++;
+            } else {
+                failCount++;
+            }
+
+            const result = document.createElement('div');
+            result.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            result.innerHTML = `
+                <i class="fas fa-${passed ? 'check-circle' : 'times-circle'}"></i>
+                <span><strong>${testName}</strong>${message ? ': ' + message : ''}</span>
+            `;
+            document.getElementById(container).appendChild(result);
+
+            updateSummary();
+        }
+
+        function updateSummary() {
+            document.getElementById('pass-count').textContent = passCount;
+            document.getElementById('fail-count').textContent = failCount;
+            document.getElementById('total-count').textContent = totalCount;
+        }
+
+        // Component Tests
+        async function runComponentTests() {
+            // Test 1: Component initialization
+            try {
+                const viewer = new MindMapViewer('test-viewer', {
+                    initialZoom: 1,
+                    showLabels: true
+                });
+                addTestResult('component-tests', 'Component initialization', true);
+                window.testViewer = viewer; // Store for other tests
+            } catch (e) {
+                addTestResult('component-tests', 'Component initialization', false, e.message);
+            }
+
+            // Test 2: Load sample data
+            try {
+                const response = await fetch('data/sample-mindmap.json');
+                const data = await response.json();
+                window.testViewer.loadData(data);
+                addTestResult('component-tests', 'Load sample data', true);
+            } catch (e) {
+                addTestResult('component-tests', 'Load sample data', false, e.message);
+            }
+
+            // Test 3: Data structure validation
+            try {
+                const hasNodes = window.testViewer.nodeMap.size > 0;
+                addTestResult('component-tests', 'Data structure validation', hasNodes, 
+                    `${window.testViewer.nodeMap.size} nodes loaded`);
+            } catch (e) {
+                addTestResult('component-tests', 'Data structure validation', false, e.message);
+            }
+
+            // Test 4: SVG rendering
+            try {
+                const svg = document.querySelector('#test-viewer svg');
+                const hasNodes = svg && svg.querySelector('.nodes');
+                const hasLinks = svg && svg.querySelector('.links');
+                addTestResult('component-tests', 'SVG rendering', hasNodes && hasLinks);
+            } catch (e) {
+                addTestResult('component-tests', 'SVG rendering', false, e.message);
+            }
+        }
+
+        // Interaction Tests
+        function runInteractionTests() {
+            // Test 1: Zoom in
+            try {
+                const initialZoom = window.testViewer.currentZoom;
+                window.testViewer.zoomIn();
+                const zoomed = window.testViewer.currentZoom > initialZoom;
+                addTestResult('interaction-tests', 'Zoom in functionality', zoomed);
+            } catch (e) {
+                addTestResult('interaction-tests', 'Zoom in functionality', false, e.message);
+            }
+
+            // Test 2: Zoom out
+            try {
+                const initialZoom = window.testViewer.currentZoom;
+                window.testViewer.zoomOut();
+                const zoomed = window.testViewer.currentZoom < initialZoom;
+                addTestResult('interaction-tests', 'Zoom out functionality', zoomed);
+            } catch (e) {
+                addTestResult('interaction-tests', 'Zoom out functionality', false, e.message);
+            }
+
+            // Test 3: Reset view
+            try {
+                window.testViewer.resetView();
+                const resetZoom = Math.abs(window.testViewer.currentZoom - 1) < 0.01;
+                const resetTranslate = Math.abs(window.testViewer.translateX) < 0.01 && 
+                                       Math.abs(window.testViewer.translateY) < 0.01;
+                addTestResult('interaction-tests', 'Reset view functionality', resetZoom && resetTranslate);
+            } catch (e) {
+                addTestResult('interaction-tests', 'Reset view functionality', false, e.message);
+            }
+
+            // Test 4: Node selection
+            try {
+                const firstNode = Array.from(window.testViewer.nodeMap.values())[0];
+                window.testViewer.selectNode(firstNode);
+                const selected = window.testViewer.selectedNode === firstNode;
+                addTestResult('interaction-tests', 'Node selection', selected);
+            } catch (e) {
+                addTestResult('interaction-tests', 'Node selection', false, e.message);
+            }
+
+            // Test 5: Collapse/Expand
+            try {
+                const nodeWithChildren = Array.from(window.testViewer.nodeMap.values())
+                    .find(n => n.children && n.children.length > 0);
+                
+                if (nodeWithChildren) {
+                    window.testViewer.toggleNodeCollapse(nodeWithChildren);
+                    const isCollapsed = window.testViewer.collapsedNodes.has(nodeWithChildren.id);
+                    window.testViewer.toggleNodeCollapse(nodeWithChildren);
+                    const isExpanded = !window.testViewer.collapsedNodes.has(nodeWithChildren.id);
+                    addTestResult('interaction-tests', 'Collapse/Expand functionality', isCollapsed && isExpanded);
+                } else {
+                    addTestResult('interaction-tests', 'Collapse/Expand functionality', false, 'No nodes with children found');
+                }
+            } catch (e) {
+                addTestResult('interaction-tests', 'Collapse/Expand functionality', false, e.message);
+            }
+
+            // Test 6: Expand all
+            try {
+                window.testViewer.expandAll();
+                const allExpanded = window.testViewer.collapsedNodes.size === 0;
+                addTestResult('interaction-tests', 'Expand all functionality', allExpanded);
+            } catch (e) {
+                addTestResult('interaction-tests', 'Expand all functionality', false, e.message);
+            }
+
+            // Test 7: Collapse all
+            try {
+                window.testViewer.collapseAll();
+                const hasCollapsed = window.testViewer.collapsedNodes.size > 0;
+                addTestResult('interaction-tests', 'Collapse all functionality', hasCollapsed);
+                // Expand again for visual test
+                window.testViewer.expandAll();
+            } catch (e) {
+                addTestResult('interaction-tests', 'Collapse all functionality', false, e.message);
+            }
+        }
+
+        // Run all tests
+        async function runAllTests() {
+            await runComponentTests();
+            setTimeout(() => {
+                runInteractionTests();
+            }, 1000); // Wait for rendering
+        }
+
+        // Visual test button
+        document.getElementById('run-visual-test').addEventListener('click', () => {
+            if (window.testViewer) {
+                window.testViewer.resetView();
+                setTimeout(() => {
+                    window.testViewer.zoomIn();
+                    setTimeout(() => {
+                        window.testViewer.zoomOut();
+                        setTimeout(() => {
+                            window.testViewer.resetView();
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }
+        });
+
+        // Run tests on load
+        window.addEventListener('DOMContentLoaded', runAllTests);
+    </script>
+</body>
+</html>

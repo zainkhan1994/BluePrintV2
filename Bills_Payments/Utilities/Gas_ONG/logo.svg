@@ -1,0 +1,7 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="200" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="0" y="0" width="200" height="80" fill="#e87722" />
+  <text x="100" y="30" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white">ONG</text>
+  <text x="100" y="55" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Oklahoma Natural Gas</text>
+  <text x="100" y="70" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">A CenterPoint Energy Company</text>
+</svg>

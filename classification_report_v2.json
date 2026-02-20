@@ -1,0 +1,98 @@
+{
+  "Projects/SpaceApps": {
+    "count": 31256,
+    "avg_confidence": 0.9799999999996241
+  },
+  "Work/Work_Timeline": {
+    "count": 91,
+    "avg_confidence": 0.9800000000000001
+  },
+  "Personal/Contacts_Network": {
+    "count": 85,
+    "avg_confidence": 0.9799999999999998
+  },
+  "Personal/Timeline": {
+    "count": 312,
+    "avg_confidence": 0.9799999999999992
+  },
+  "Work/Employers/R_Cubed": {
+    "count": 1603,
+    "avg_confidence": 0.9800000000000145
+  },
+  "Work/Tools": {
+    "count": 638,
+    "avg_confidence": 0.980000000000009
+  },
+  "Personal/Assets_Inventory": {
+    "count": 3243,
+    "avg_confidence": 0.9800000000000164
+  },
+  "Health/Lab_Work": {
+    "count": 268,
+    "avg_confidence": 0.9799999999999961
+  },
+  "Work/Work_Portfolio": {
+    "count": 136,
+    "avg_confidence": 0.9800000000000009
+  },
+  "Personal/Financial": {
+    "count": 398,
+    "avg_confidence": 0.9800000000000033
+  },
+  "Projects/Xain_Dev/Automation_Engines": {
+    "count": 27807,
+    "avg_confidence": 0.9799999999996316
+  },
+  "Health/Doctors": {
+    "count": 3926,
+    "avg_confidence": 0.9800000000000166
+  },
+  "Projects/Xain_Dev/Timer_Scripts": {
+    "count": 55,
+    "avg_confidence": 0.979999999999999
+  },
+  "Projects/Xain_Dev/OpenAI_Data": {
+    "count": 6001,
+    "avg_confidence": 0.9799999999998792
+  },
+  "Personal/Important_Documents": {
+    "count": 6218,
+    "avg_confidence": 0.9799999999998681
+  },
+  "Projects/NASA_JSC": {
+    "count": 2,
+    "avg_confidence": 0.98
+  },
+  "Projects/Hackathons": {
+    "count": 49,
+    "avg_confidence": 0.9799999999999992
+  },
+  "Health/Data_Sources": {
+    "count": 15033,
+    "avg_confidence": 0.9799999999996896
+  },
+  "Work/Employers/Rose_Rock_Development/Goodball_(Reunion | Palace | Adams | Vandever)": {
+    "count": 21,
+    "avg_confidence": 0.9800000000000002
+  },
+  "Projects/Photo_Analysis": {
+    "count": 959,
+    "avg_confidence": 0.980000000000012
+  },
+  "Projects/SFA": {
+    "count": 10,
+    "avg_confidence": 0.9800000000000002
+  },
+  "Work/Employers/Red_River_Development/Trulo_Homes": {
+    "count": 286,
+    "avg_confidence": 0.9799999999999975
+  },
+  "Work/Employers/Ashford_Communities": {
+    "count": 2,
+    "avg_confidence": 0.98
+  },
+  "Work/Employers/US_Census_Bureau": {
+    "count": 1,
+    "avg_confidence": 0.98
+  }
+}

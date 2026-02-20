@@ -1,0 +1,38 @@
+# TEST_PAYLOAD.md
+
+TEST_PAYLOAD_ID: TP-01
+PURPOSE: Validate ingestion, indexing, and rendering inside the repo.
+
+INFO:
+  name: "Sample payload"
+  environment: "dev"
+  status: "active"
+
+CHECKS:
+  - file_detected: true
+  - parse_success: true
+  - metadata_loaded: true
+
+SAMPLE_BLOCK:
+  description: >
+    This block helps you confirm your pipeline reads
+    nested structures and multiline values.
+
+  payload:
+    user: "zk"
+    roles:
+      - admin
+      - viewer
+    metrics:
+      items: 12
+      errors: 0
+
+LOG:
+  - step: "init"
+    result: "ok"
+  - step: "read"
+    result: "ok"
+  - step: "done"
+    result: "ok"
+
+END_OF_FILE

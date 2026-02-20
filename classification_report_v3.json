@@ -1,0 +1,110 @@
+{
+  "Health/Data_Sources": {
+    "count": 15044,
+    "avg_confidence": 0.99
+  },
+  "Health/Doctors": {
+    "count": 3926,
+    "avg_confidence": 0.99
+  },
+  "Health/Lab_Work": {
+    "count": 268,
+    "avg_confidence": 0.99
+  },
+  "Personal/Assets_Inventory": {
+    "count": 3248,
+    "avg_confidence": 0.99
+  },
+  "Personal/Contacts_Network": {
+    "count": 87,
+    "avg_confidence": 0.99
+  },
+  "Personal/Financial": {
+    "count": 402,
+    "avg_confidence": 0.99
+  },
+  "Personal/Important_Documents": {
+    "count": 6221,
+    "avg_confidence": 0.99
+  },
+  "Personal/Timeline": {
+    "count": 323,
+    "avg_confidence": 0.99
+  },
+  "Projects/Hackathons": {
+    "count": 81,
+    "avg_confidence": 0.99
+  },
+  "Projects/NASA_JSC": {
+    "count": 2,
+    "avg_confidence": 0.99
+  },
+  "Projects/Photo_Analysis": {
+    "count": 964,
+    "avg_confidence": 0.99
+  },
+  "Projects/SFA": {
+    "count": 10,
+    "avg_confidence": 0.99
+  },
+  "Projects/SpaceApps": {
+    "count": 31281,
+    "avg_confidence": 0.99
+  },
+  "Projects/Xain_Dev/Automation_Engines": {
+    "count": 28140,
+    "avg_confidence": 0.99
+  },
+  "Projects/Xain_Dev/OpenAI_Data": {
+    "count": 6026,
+    "avg_confidence": 0.99
+  },
+  "Projects/Xain_Dev/Timer_Scripts": {
+    "count": 55,
+    "avg_confidence": 0.99
+  },
+  "Unsorted/Archive/Installers": {
+    "count": 4,
+    "avg_confidence": 0.99
+  },
+  "Unsorted/Archive/Misc": {
+    "count": 1,
+    "avg_confidence": 0.99
+  },
+  "Unsorted/Archive/System": {
+    "count": 7,
+    "avg_confidence": 0.99
+  },
+  "Work/Employers/Ashford_Communities": {
+    "count": 2,
+    "avg_confidence": 0.99
+  },
+  "Work/Employers/R_Cubed": {
+    "count": 1621,
+    "avg_confidence": 0.99
+  },
+  "Work/Employers/Red_River_Development/Trulo_Homes": {
+    "count": 286,
+    "avg_confidence": 0.99
+  },
+  "Work/Employers/Rose_Rock_Development/Goodball_(Reunion | Palace | Adams | Vandever)": {
+    "count": 24,
+    "avg_confidence": 0.99
+  },
+  "Work/Employers/US_Census_Bureau": {
+    "count": 1,
+    "avg_confidence": 0.99
+  },
+  "Work/Tools": {
+    "count": 656,
+    "avg_confidence": 0.99
+  },
+  "Work/Work_Portfolio": {
+    "count": 166,
+    "avg_confidence": 0.99
+  },
+  "Work/Work_Timeline": {
+    "count": 105,
+    "avg_confidence": 0.99
+  }
+}

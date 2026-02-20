@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+interactive-visualizer/node_modules/
+
+# Build outputs (temporary)
+.vite/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+backend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backend generated data
+backend/data/
+backend/*.db
+
+# Python virtual environments and caches
+.venv/
+venv/
+backend/.venv/
+backend/venv/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/

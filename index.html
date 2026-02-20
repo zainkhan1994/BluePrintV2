@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="toolbar">
+            <button id="loadPersonal" class="glass-btn">
+                <i class="fas fa-user"></i>
+            </button>
+            <button id="addFolder" class="glass-btn">
+                <i class="fas fa-folder-plus"></i>
+            </button>
+            <button id="addFile" class="glass-btn">
+                <i class="fas fa-file-plus"></i>
+            </button>
+            <button id="exportJson" class="glass-btn" title="Export JSON">
+                <i class="fas fa-download"></i>
+            </button>
+            <button id="exportCsv" class="glass-btn" title="Export CSV">
+                <i class="fas fa-file-csv"></i>
+            </button>
+            <button id="mindMapToggle" class="glass-btn">
+                <i class="fas fa-project-diagram"></i>
+            </button>
+            <a href="mindmap-demo.html" class="glass-btn" title="Interactive Mind Map Demo">
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="dist-interactive/index.html" class="glass-btn" title="Interactive Mind Map Visualizer" style="background: rgba(74, 158, 255, 0.2); border-color: rgba(74, 158, 255, 0.4);">
+                <i class="fas fa-brain"></i>
+            </a>
+            <a href="dist-interactive/index.html" class="glass-btn" title="Interactive Mind Map Visualizer (Golden)" style="background: rgba(218, 165, 32, 0.2); border-color: rgba(218, 165, 32, 0.4);">
+                <i class="fas fa-brain"></i>
+            </a>
+        </div>
+
+        <div class="main-content">
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading data...</p>
+            </div>
+            <div id="treeView" class="tree-view">
+                <div class="welcome">
+                    <i class="fas fa-folder-open"></i>
+                    <p>Click + to add folders or files</p>
+                </div>
+            </div>
+            
+            <div id="mindMapView" class="mind-map-view" style="display: none;">
+                <svg id="mindMapSvg" width="100%" height="100%"></svg>
+            </div>
+        </div>
+
+        <!-- Simple modal for adding items -->
+        <div id="addModal" class="modal">
+            <div class="modal-content glass">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Add Item</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="itemName" placeholder="Name" autofocus>
+                    <textarea id="itemDescription" placeholder="Description (optional)" rows="2"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveItem" class="glass-btn">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

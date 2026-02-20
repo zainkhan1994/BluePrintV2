@@ -1,0 +1,2035 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "label": "Blueprint",
+      "description": "Comprehensive life and digital organization system with 100+ apps",
+      "type": "root",
+      "metadata": {
+        "icon": "fas fa-project-diagram",
+        "color": "#4a9eff"
+      }
+    },
+    {
+      "id": "personal",
+      "label": "Personal",
+      "description": "Life, home, ID, contacts, events, and financial management",
+      "type": "branch",
+      "metadata": {
+        "icon": "fas fa-user",
+        "color": "#ff6b6b"
+      }
+    },
+    {
+      "id": "applications",
+      "label": "Applications",
+      "description": "100+ mobile and desktop apps organized by category",
+      "type": "branch",
+      "metadata": {
+        "icon": "fas fa-mobile-alt",
+        "color": "#51cf66"
+      }
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "description": "Medical records, medications, insurance, and health apps",
+      "type": "branch",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#ff9f43"
+      }
+    },
+    {
+      "id": "documents",
+      "label": "Important Documents",
+      "description": "Identity, Medical, Legal, Tax, Insurance documents",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-file-alt",
+        "color": "#845ef7"
+      }
+    },
+    {
+      "id": "contacts",
+      "label": "Contacts Network",
+      "description": "Family, Friends, Professional contacts",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-address-book",
+        "color": "#f06595"
+      }
+    },
+    {
+      "id": "financial",
+      "label": "Financial Management",
+      "description": "Banking, Bills, Tools, Reports",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-dollar-sign",
+        "color": "#20c997"
+      }
+    },
+    {
+      "id": "digital-life",
+      "label": "Digital Life",
+      "description": "Social media, email, entertainment accounts",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-globe",
+        "color": "#0ea5e9"
+      }
+    },
+    {
+      "id": "social",
+      "label": "Social & Community",
+      "description": "Messaging, Communities, Social Media - 22 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#3b82f6"
+      }
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity & Organization",
+      "description": "Notes, Project Management, Automation - 15 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-tasks",
+        "color": "#8b5cf6"
+      }
+    },
+    {
+      "id": "finance-apps",
+      "label": "Finance & Payments",
+      "description": "Banking apps, payment services - 11 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-credit-card",
+        "color": "#10b981"
+      }
+    },
+    {
+      "id": "shopping",
+      "label": "Shopping & Rewards",
+      "description": "Retail, Food, Shipping apps - 17 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-shopping-cart",
+        "color": "#f59e0b"
+      }
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation & Travel",
+      "description": "Maps, Transport, Housing - 8 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-map-marked-alt",
+        "color": "#06b6d4"
+      }
+    },
+    {
+      "id": "learning",
+      "label": "Learning & Self-Improvement",
+      "description": "Educational apps - 5 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-graduation-cap",
+        "color": "#ec4899"
+      }
+    },
+    {
+      "id": "entertainment",
+      "label": "Entertainment & Media",
+      "description": "Streaming, Devices - 9 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-film",
+        "color": "#f43f5e"
+      }
+    },
+    {
+      "id": "ai",
+      "label": "AI & Knowledge Tools",
+      "description": "ChatGPT, Claude, Perplexity - 4 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-brain",
+        "color": "#a855f7"
+      }
+    },
+    {
+      "id": "medical-records",
+      "label": "Medical Records",
+      "description": "Doctors, Conditions, Lab Results, Timeline",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-hospital",
+        "color": "#ef4444"
+      }
+    },
+    {
+      "id": "medications",
+      "label": "Medications & Supplements",
+      "description": "Current prescriptions and supplements",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-pills",
+        "color": "#ec4899"
+      }
+    },
+    {
+      "id": "insurance",
+      "label": "Insurance & Coverage",
+      "description": "Health insurance details",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-shield-alt",
+        "color": "#06b6d4"
+      }
+    },
+    {
+      "id": "health-apps",
+      "label": "Health & Fitness Apps",
+      "description": "MyChart, BetterSleep, PT Solutions - 10 apps",
+      "type": "category",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#f97316"
+      }
+    },
+    {
+      "id": "messaging",
+      "label": "Direct Messaging",
+      "description": "8 messaging apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "communities",
+      "label": "Communities & Groups",
+      "description": "8 community platforms",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "social-media",
+      "label": "Social Media",
+      "description": "6 social platforms",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "imessage",
+      "label": "iMessage",
+      "description": "iMessage messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#34C759",
+        "logo": "Social_Community/Direct_Messaging/iMessage/logo.png"
+      }
+    },
+    {
+      "id": "facetime",
+      "label": "FaceTime",
+      "description": "FaceTime messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#00E676",
+        "logo": "Social_Community/Direct_Messaging/FaceTime/logo.png"
+      }
+    },
+    {
+      "id": "textme",
+      "label": "TextMe",
+      "description": "TextMe messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#2196F3",
+        "logo": "Social_Community/Direct_Messaging/TextMe/logo.png"
+      }
+    },
+    {
+      "id": "textfree",
+      "label": "TextFree",
+      "description": "TextFree messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#00BCD4",
+        "logo": "Social_Community/Direct_Messaging/TextFree/logo.png"
+      }
+    },
+    {
+      "id": "whatsapp",
+      "label": "WhatsApp",
+      "description": "WhatsApp messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#25D366",
+        "logo": "Social_Community/Direct_Messaging/WhatsApp/logo.png"
+      }
+    },
+    {
+      "id": "messenger",
+      "label": "Messenger",
+      "description": "Messenger messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#0084FF",
+        "logo": "Social_Community/Direct_Messaging/Facebook_Messenger/logo.png"
+      }
+    },
+    {
+      "id": "discord",
+      "label": "Discord",
+      "description": "Discord messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#5865F2",
+        "logo": "Social_Community/Direct_Messaging/Discord/logo.png"
+      }
+    },
+    {
+      "id": "slack",
+      "label": "Slack",
+      "description": "Slack messaging app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-comment",
+        "color": "#4A154B",
+        "logo": "Social_Community/Direct_Messaging/Slack/logo.png"
+      }
+    },
+    {
+      "id": "skool",
+      "label": "Skool",
+      "description": "Skool community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#FF6B35",
+        "logo": "Social_Community/Communities_Groups/Skool/logo.png"
+      }
+    },
+    {
+      "id": "mighty",
+      "label": "Mighty",
+      "description": "Mighty community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#6C5CE7",
+        "logo": "Social_Community/Communities_Groups/Mighty/logo.png"
+      }
+    },
+    {
+      "id": "reddit",
+      "label": "Reddit",
+      "description": "Reddit community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#FF4500",
+        "logo": "Social_Community/Communities_Groups/Reddit/logo.png"
+      }
+    },
+    {
+      "id": "meetup",
+      "label": "Meetup",
+      "description": "Meetup community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#ED1C40",
+        "logo": "Social_Community/Communities_Groups/Meetup/logo.png"
+      }
+    },
+    {
+      "id": "eventbrite",
+      "label": "Eventbrite",
+      "description": "Eventbrite community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#F05537",
+        "logo": "Social_Community/Communities_Groups/Eventbrite/logo.png"
+      }
+    },
+    {
+      "id": "linkedin-events",
+      "label": "LinkedIn",
+      "description": "LinkedIn community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#0A66C2",
+        "logo": "Social_Community/Communities_Groups/LinkedIn_Events/logo.png"
+      }
+    },
+    {
+      "id": "meta-events",
+      "label": "Meta",
+      "description": "Meta community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#0668E1",
+        "logo": "Social_Community/Communities_Groups/Meta_Events/logo.png"
+      }
+    },
+    {
+      "id": "faves",
+      "label": "Faves",
+      "description": "Faves community platform",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-users",
+        "color": "#FF6B6B",
+        "logo": "Social_Community/Communities_Groups/Faves/logo.png"
+      }
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "description": "Instagram social media",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#E4405F",
+        "logo": "Social_Community/Social_Media/Instagram/logo.png"
+      }
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "description": "TikTok social media",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#000000",
+        "logo": "Social_Community/Social_Media/TikTok/logo.png"
+      }
+    },
+    {
+      "id": "snapchat",
+      "label": "Snapchat",
+      "description": "Snapchat social media",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#FFFC00",
+        "logo": "Social_Community/Social_Media/Snapchat/logo.png"
+      }
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "description": "Facebook social media",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#1877F2",
+        "logo": "Social_Community/Social_Media/Facebook/logo.png"
+      }
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "description": "YouTube social media",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#FF0000",
+        "logo": "Social_Community/Social_Media/YouTube/logo.png"
+      }
+    },
+    {
+      "id": "threads",
+      "label": "Threads",
+      "description": "Threads social media",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-share-alt",
+        "color": "#000000",
+        "logo": "Social_Community/Social_Media/Threads/logo.png"
+      }
+    },
+    {
+      "id": "notes",
+      "label": "Planning & Notes",
+      "description": "6 note-taking apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "project-mgmt",
+      "label": "Project Management",
+      "description": "4 project tools",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-project-diagram",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "automation",
+      "label": "Automation & Tools",
+      "description": "5 automation tools",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-cog",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "notion",
+      "label": "Notion",
+      "description": "Notion note-taking app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#000000",
+        "logo": "Productivity_Organization/Planning_Notes/Notion/logo.png"
+      }
+    },
+    {
+      "id": "obsidian",
+      "label": "Obsidian",
+      "description": "Obsidian note-taking app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#7C3AED",
+        "logo": "Productivity_Organization/Planning_Notes/Obsidian/logo.png"
+      }
+    },
+    {
+      "id": "apple-notes",
+      "label": "Notes",
+      "description": "Notes note-taking app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#FFCC00",
+        "logo": "Productivity_Organization/Planning_Notes/Apple_Notes/logo.png"
+      }
+    },
+    {
+      "id": "google-tasks",
+      "label": "Tasks",
+      "description": "Tasks note-taking app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#4285F4",
+        "logo": "Productivity_Organization/Planning_Notes/Google_Tasks/logo.png"
+      }
+    },
+    {
+      "id": "reminders",
+      "label": "Reminders",
+      "description": "Reminders note-taking app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#FF3B30",
+        "logo": "Productivity_Organization/Planning_Notes/Reminders/logo.png"
+      }
+    },
+    {
+      "id": "calendar",
+      "label": "Calendar",
+      "description": "Calendar note-taking app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-sticky-note",
+        "color": "#FC3158",
+        "logo": "Productivity_Organization/Planning_Notes/Calendar/logo.png"
+      }
+    },
+    {
+      "id": "asana",
+      "label": "Asana",
+      "description": "Asana project management",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tasks",
+        "color": "#F06A6A",
+        "logo": "Productivity_Organization/Project_Management/Asana/logo.png"
+      }
+    },
+    {
+      "id": "miro",
+      "label": "Miro",
+      "description": "Miro project management",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tasks",
+        "color": "#FFD02F",
+        "logo": "Productivity_Organization/Project_Management/Miro/logo.png"
+      }
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "description": "GitHub project management",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tasks",
+        "color": "#181717",
+        "logo": "Productivity_Organization/Project_Management/GitHub/logo.png"
+      }
+    },
+    {
+      "id": "gcloud",
+      "label": "GCloud",
+      "description": "GCloud project management",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tasks",
+        "color": "#4285F4",
+        "logo": "Productivity_Organization/Project_Management/Google_Cloud/logo.png"
+      }
+    },
+    {
+      "id": "ifttt",
+      "label": "IFTTT",
+      "description": "IFTTT automation tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-cog",
+        "color": "#000000",
+        "logo": "Productivity_Organization/Automation_Tools/IFTTT/logo.png"
+      }
+    },
+    {
+      "id": "shortcuts",
+      "label": "Shortcuts",
+      "description": "Shortcuts automation tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-cog",
+        "color": "#007AFF",
+        "logo": "Productivity_Organization/Automation_Tools/Shortcuts/logo.png"
+      }
+    },
+    {
+      "id": "scriptable",
+      "label": "Scriptable",
+      "description": "Scriptable automation tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-cog",
+        "color": "#FF375F",
+        "logo": "Productivity_Organization/Automation_Tools/Scriptable/logo.png"
+      }
+    },
+    {
+      "id": "pythonista",
+      "label": "Pythonista",
+      "description": "Pythonista automation tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-cog",
+        "color": "#3776AB",
+        "logo": "Productivity_Organization/Automation_Tools/Pythonista/logo.png"
+      }
+    },
+    {
+      "id": "fireflies",
+      "label": "Fireflies",
+      "description": "Fireflies automation tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-cog",
+        "color": "#FF6B35",
+        "logo": "Productivity_Organization/Automation_Tools/Fireflies/logo.png"
+      }
+    },
+    {
+      "id": "banking",
+      "label": "Banking Apps",
+      "description": "2 banking apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-university",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "payments",
+      "label": "Payment Services",
+      "description": "6 payment apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "finance-tools",
+      "label": "Finance Tools",
+      "description": "3 financial tools",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-chart-line",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "wells-fargo",
+      "label": "Wells Fargo",
+      "description": "Wells Fargo banking",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-university",
+        "color": "#D71E28",
+        "logo": "Finance_Payments/Wells_Fargo/logo.png"
+      }
+    },
+    {
+      "id": "bank-of-america",
+      "label": "Bank of America",
+      "description": "Bank of America banking",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-university",
+        "color": "#E31837",
+        "logo": "Finance_Payments/Bank_of_America/logo.png"
+      }
+    },
+    {
+      "id": "cashapp",
+      "label": "Cash App",
+      "description": "Cash App payment service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#00D632",
+        "logo": "Finance_Payments/Cash_App/logo.png"
+      }
+    },
+    {
+      "id": "venmo",
+      "label": "Venmo",
+      "description": "Venmo payment service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#3D95CE",
+        "logo": "Finance_Payments/Venmo/logo.png"
+      }
+    },
+    {
+      "id": "paypal",
+      "label": "PayPal",
+      "description": "PayPal payment service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#00457C",
+        "logo": "Finance_Payments/PayPal/logo.png"
+      }
+    },
+    {
+      "id": "western-union",
+      "label": "W. Union",
+      "description": "W. Union payment service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#FFCC00",
+        "logo": "Finance_Payments/Western_Union/logo.png"
+      }
+    },
+    {
+      "id": "zelle",
+      "label": "Zelle",
+      "description": "Zelle payment service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#6D1ED4",
+        "logo": "Finance_Payments/Zelle/logo.png"
+      }
+    },
+    {
+      "id": "square",
+      "label": "Square",
+      "description": "Square payment service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-money-bill-wave",
+        "color": "#3E4348",
+        "logo": "Finance_Payments/SquareUp/logo.png"
+      }
+    },
+    {
+      "id": "rocket-money",
+      "label": "Rocket",
+      "description": "Rocket financial tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-chart-line",
+        "color": "#FD3A69",
+        "logo": "Finance_Payments/Rocket_Money/logo.png"
+      }
+    },
+    {
+      "id": "acorns",
+      "label": "Acorns",
+      "description": "Acorns financial tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-chart-line",
+        "color": "#7DC77F",
+        "logo": "Finance_Payments/Acorns/logo.png"
+      }
+    },
+    {
+      "id": "plaid",
+      "label": "Plaid",
+      "description": "Plaid financial tool",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-chart-line",
+        "color": "#000000",
+        "logo": "Finance_Payments/Plaid/logo.png"
+      }
+    },
+    {
+      "id": "retail",
+      "label": "Retail",
+      "description": "9 retail apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "food",
+      "label": "Food & Coffee",
+      "description": "5 food delivery apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-utensils",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "shipping",
+      "label": "Shipping & Tracking",
+      "description": "3 shipping services",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-box",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "amazon",
+      "label": "Amazon",
+      "description": "Amazon retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#FF9900",
+        "logo": "Shopping_Rewards/Retail/Amazon/logo.png"
+      }
+    },
+    {
+      "id": "walmart",
+      "label": "Walmart",
+      "description": "Walmart retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#0071CE",
+        "logo": "Shopping_Rewards/Retail/Walmart/logo.png"
+      }
+    },
+    {
+      "id": "target",
+      "label": "Target",
+      "description": "Target retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#CC0000",
+        "logo": "Shopping_Rewards/Retail/Target/logo.png"
+      }
+    },
+    {
+      "id": "lowes",
+      "label": "Lowes",
+      "description": "Lowes retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#004990",
+        "logo": "Shopping_Rewards/Retail/Lowes/logo.png"
+      }
+    },
+    {
+      "id": "home-depot",
+      "label": "Home Depot",
+      "description": "Home Depot retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#F96302",
+        "logo": "Shopping_Rewards/Retail/Home_Depot/logo.png"
+      }
+    },
+    {
+      "id": "office-depot",
+      "label": "Office Depot",
+      "description": "Office Depot retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#CC0000",
+        "logo": "Shopping_Rewards/Retail/Office_Depot/logo.png"
+      }
+    },
+    {
+      "id": "ebay",
+      "label": "eBay",
+      "description": "eBay retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#E53238",
+        "logo": "Shopping_Rewards/Retail/eBay/logo.png"
+      }
+    },
+    {
+      "id": "temu",
+      "label": "Temu",
+      "description": "Temu retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#FF6A1B",
+        "logo": "Shopping_Rewards/Retail/Temu/logo.png"
+      }
+    },
+    {
+      "id": "etsy",
+      "label": "Etsy",
+      "description": "Etsy retail",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-store",
+        "color": "#F1641E",
+        "logo": "Shopping_Rewards/Retail/Etsy/logo.png"
+      }
+    },
+    {
+      "id": "chickfila",
+      "label": "Chick-fil-A",
+      "description": "Chick-fil-A food service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-utensils",
+        "color": "#E51636",
+        "logo": "Shopping_Rewards/Food_Coffee/Chick-fil-A/logo.png"
+      }
+    },
+    {
+      "id": "dutchbros",
+      "label": "Dutch Bros",
+      "description": "Dutch Bros food service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-utensils",
+        "color": "#2E368F",
+        "logo": "Shopping_Rewards/Food_Coffee/Dutch_Bros/logo.png"
+      }
+    },
+    {
+      "id": "starbucks",
+      "label": "Starbucks",
+      "description": "Starbucks food service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-utensils",
+        "color": "#00704A",
+        "logo": "Shopping_Rewards/Food_Coffee/Starbucks/logo.png"
+      }
+    },
+    {
+      "id": "doordash",
+      "label": "DoorDash",
+      "description": "DoorDash food service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-utensils",
+        "color": "#FF3008",
+        "logo": "Shopping_Rewards/Food_Coffee/DoorDash/logo.png"
+      }
+    },
+    {
+      "id": "ubereats",
+      "label": "Uber Eats",
+      "description": "Uber Eats food service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-utensils",
+        "color": "#06C167",
+        "logo": "Shopping_Rewards/Food_Coffee/Uber_Eats/logo.png"
+      }
+    },
+    {
+      "id": "ups",
+      "label": "UPS",
+      "description": "UPS shipping",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-box",
+        "color": "#351C15",
+        "logo": "Shopping_Rewards/Shipping_Tracking/UPS/logo.png"
+      }
+    },
+    {
+      "id": "fedex",
+      "label": "FedEx",
+      "description": "FedEx shipping",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-box",
+        "color": "#4D148C",
+        "logo": "Shopping_Rewards/Shipping_Tracking/FedEx/logo.png"
+      }
+    },
+    {
+      "id": "usps",
+      "label": "USPS",
+      "description": "USPS shipping",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-box",
+        "color": "#333366",
+        "logo": "Shopping_Rewards/Shipping_Tracking/USPS_Mobile/logo.png"
+      }
+    },
+    {
+      "id": "maps",
+      "label": "Maps & Navigation",
+      "description": "4 map apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-map",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "transport",
+      "label": "Transportation",
+      "description": "2 ride services",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-car",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "housing-weather",
+      "label": "Housing & Weather",
+      "description": "2 utility apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-home",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "google-maps",
+      "label": "Google Maps",
+      "description": "Google Maps navigation",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-map",
+        "color": "#4285F4",
+        "logo": "Navigation_Travel/Maps_Transport/Google_Maps/logo.png"
+      }
+    },
+    {
+      "id": "apple-maps",
+      "label": "Apple Maps",
+      "description": "Apple Maps navigation",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-map",
+        "color": "#007AFF",
+        "logo": "Navigation_Travel/Maps_Transport/Apple_Maps/logo.png"
+      }
+    },
+    {
+      "id": "yandex",
+      "label": "Yandex",
+      "description": "Yandex navigation",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-map",
+        "color": "#FF0000",
+        "logo": "Navigation_Travel/Maps_Transport/Yandex_Maps/logo.png"
+      }
+    },
+    {
+      "id": "parkmobile",
+      "label": "ParkMobile",
+      "description": "ParkMobile navigation",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-map",
+        "color": "#00A651",
+        "logo": "Navigation_Travel/Maps_Transport/ParkMobile/logo.png"
+      }
+    },
+    {
+      "id": "uber",
+      "label": "Uber",
+      "description": "Uber ride service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-car",
+        "color": "#000000",
+        "logo": "Navigation_Travel/Maps_Transport/Uber/logo.png"
+      }
+    },
+    {
+      "id": "lyft",
+      "label": "Lyft",
+      "description": "Lyft ride service",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-car",
+        "color": "#FF00BF",
+        "logo": "Navigation_Travel/Maps_Transport/Lyft/logo.png"
+      }
+    },
+    {
+      "id": "apartments",
+      "label": "Apartments",
+      "description": "Apartments app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-home",
+        "color": "#00A651",
+        "logo": "Navigation_Travel/Housing_Weather/Apartments_App/logo.png"
+      }
+    },
+    {
+      "id": "weather",
+      "label": "Weather",
+      "description": "Weather app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-cloud-sun",
+        "color": "#00BFFF",
+        "logo": "Navigation_Travel/Housing_Weather/Weather/logo.png"
+      }
+    },
+    {
+      "id": "mychart",
+      "label": "MyChart",
+      "description": "MyChart health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#007BFF",
+        "logo": "Health_Fitness/MyChart/logo.png"
+      }
+    },
+    {
+      "id": "bettersleep",
+      "label": "BetterSleep",
+      "description": "BetterSleep health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#4A90E2",
+        "logo": "Health_Fitness/BetterSleep/logo.png"
+      }
+    },
+    {
+      "id": "pt-solutions",
+      "label": "PT Solutions",
+      "description": "PT Solutions health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#FF6B6B",
+        "logo": "Health_Fitness/PT_Solutions/logo.png"
+      }
+    },
+    {
+      "id": "noji",
+      "label": "Noji",
+      "description": "Noji health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#9B59B6",
+        "logo": "Health_Fitness/Noji/logo.png"
+      }
+    },
+    {
+      "id": "healow",
+      "label": "Healow",
+      "description": "Healow health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#3498DB",
+        "logo": "Health_Fitness/Healow/logo.png"
+      }
+    },
+    {
+      "id": "lifetime",
+      "label": "Life Time",
+      "description": "Life Time health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#E74C3C",
+        "logo": "Health_Fitness/Life_Time/logo.png"
+      }
+    },
+    {
+      "id": "weight-gurus",
+      "label": "Weight Gurus",
+      "description": "Weight Gurus health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#F39C12",
+        "logo": "Health_Fitness/Weight_Gurus/logo.png"
+      }
+    },
+    {
+      "id": "go-kinetic",
+      "label": "Go Kinetic",
+      "description": "Go Kinetic health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#1ABC9C",
+        "logo": "Health_Fitness/Go_Kinetic/logo.png"
+      }
+    },
+    {
+      "id": "elevate",
+      "label": "Elevate",
+      "description": "Elevate health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#E67E22",
+        "logo": "Health_Fitness/Elevate/logo.png"
+      }
+    },
+    {
+      "id": "think-dirty",
+      "label": "Think Dirty",
+      "description": "Think Dirty health app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-heartbeat",
+        "color": "#2ECC71",
+        "logo": "Health_Fitness/Think_Dirty/logo.png"
+      }
+    },
+    {
+      "id": "duolingo",
+      "label": "Duolingo",
+      "description": "Duolingo learning app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-graduation-cap",
+        "color": "#58CC02",
+        "logo": "Learning_Self-Improvement/Duolingo/logo.png"
+      }
+    },
+    {
+      "id": "mimo",
+      "label": "Mimo",
+      "description": "Mimo learning app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-graduation-cap",
+        "color": "#6C63FF",
+        "logo": "Learning_Self-Improvement/Mimo/logo.png"
+      }
+    },
+    {
+      "id": "brilliant",
+      "label": "Brilliant",
+      "description": "Brilliant learning app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-graduation-cap",
+        "color": "#1B9CFC",
+        "logo": "Learning_Self-Improvement/Brilliant/logo.png"
+      }
+    },
+    {
+      "id": "quizgecko",
+      "label": "Quizgecko",
+      "description": "Quizgecko learning app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-graduation-cap",
+        "color": "#FFA502",
+        "logo": "Learning_Self-Improvement/Quizgecko/logo.png"
+      }
+    },
+    {
+      "id": "reading",
+      "label": "Reading",
+      "description": "Reading learning app",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-graduation-cap",
+        "color": "#FF6348",
+        "logo": "Learning_Self-Improvement/Information_Reading/logo.png"
+      }
+    },
+    {
+      "id": "streaming",
+      "label": "Streaming",
+      "description": "7 streaming services",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "devices",
+      "label": "Devices & Control",
+      "description": "2 device apps",
+      "type": "item",
+      "metadata": {
+        "icon": "fas fa-tablet-alt",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "netflix",
+      "label": "Netflix",
+      "description": "Netflix streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#E50914",
+        "logo": "Entertainment_Media/Streaming/Netflix/logo.png"
+      }
+    },
+    {
+      "id": "hulu",
+      "label": "Hulu",
+      "description": "Hulu streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#1CE783",
+        "logo": "Entertainment_Media/Streaming/Hulu/logo.png"
+      }
+    },
+    {
+      "id": "max",
+      "label": "Max",
+      "description": "Max streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#002BE7",
+        "logo": "Entertainment_Media/Streaming/Max/logo.png"
+      }
+    },
+    {
+      "id": "prime-video",
+      "label": "Prime",
+      "description": "Prime streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#00A8E1",
+        "logo": "Entertainment_Media/Streaming/Prime_Video/logo.png"
+      }
+    },
+    {
+      "id": "disney-plus",
+      "label": "Disney+",
+      "description": "Disney+ streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#113CCF",
+        "logo": "Entertainment_Media/Streaming/Disney_Plus/logo.png"
+      }
+    },
+    {
+      "id": "crunchyroll",
+      "label": "Crunchyroll",
+      "description": "Crunchyroll streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#F47521",
+        "logo": "Entertainment_Media/Streaming/Crunchyroll/logo.png"
+      }
+    },
+    {
+      "id": "youtube-streaming",
+      "label": "YouTube",
+      "description": "YouTube streaming",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tv",
+        "color": "#FF0000",
+        "logo": "Entertainment_Media/Streaming/YouTube/logo.png"
+      }
+    },
+    {
+      "id": "vizio",
+      "label": "VIZIO",
+      "description": "VIZIO device control",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tablet-alt",
+        "color": "#000000",
+        "logo": "Entertainment_Media/Devices_Control/VIZIO/logo.png"
+      }
+    },
+    {
+      "id": "appletv",
+      "label": "Apple TV",
+      "description": "Apple TV device control",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-tablet-alt",
+        "color": "#000000",
+        "logo": "Entertainment_Media/Devices_Control/Apple_TV_Remote/logo.png"
+      }
+    },
+    {
+      "id": "chatgpt",
+      "label": "ChatGPT",
+      "description": "ChatGPT AI assistant",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-brain",
+        "color": "#10A37F",
+        "logo": "AI_Knowledge_Tools/ChatGPT/logo.png"
+      }
+    },
+    {
+      "id": "claude",
+      "label": "Claude",
+      "description": "Claude AI assistant",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-brain",
+        "color": "#D97757",
+        "logo": "AI_Knowledge_Tools/Claude/logo.png"
+      }
+    },
+    {
+      "id": "perplexity",
+      "label": "Perplexity",
+      "description": "Perplexity AI assistant",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-brain",
+        "color": "#1FB8CD",
+        "logo": "AI_Knowledge_Tools/Perplexity/logo.png"
+      }
+    },
+    {
+      "id": "rewind",
+      "label": "Rewind",
+      "description": "Rewind AI assistant",
+      "type": "app",
+      "metadata": {
+        "icon": "fas fa-brain",
+        "color": "#8B5CF6",
+        "logo": "AI_Knowledge_Tools/Rewind/logo.png"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "root",
+      "target": "personal"
+    },
+    {
+      "source": "root",
+      "target": "applications"
+    },
+    {
+      "source": "root",
+      "target": "health"
+    },
+    {
+      "source": "personal",
+      "target": "documents"
+    },
+    {
+      "source": "personal",
+      "target": "contacts"
+    },
+    {
+      "source": "personal",
+      "target": "financial"
+    },
+    {
+      "source": "personal",
+      "target": "digital-life"
+    },
+    {
+      "source": "applications",
+      "target": "social"
+    },
+    {
+      "source": "applications",
+      "target": "productivity"
+    },
+    {
+      "source": "applications",
+      "target": "finance-apps"
+    },
+    {
+      "source": "applications",
+      "target": "shopping"
+    },
+    {
+      "source": "applications",
+      "target": "navigation"
+    },
+    {
+      "source": "applications",
+      "target": "learning"
+    },
+    {
+      "source": "applications",
+      "target": "entertainment"
+    },
+    {
+      "source": "applications",
+      "target": "ai"
+    },
+    {
+      "source": "health",
+      "target": "medical-records"
+    },
+    {
+      "source": "health",
+      "target": "medications"
+    },
+    {
+      "source": "health",
+      "target": "insurance"
+    },
+    {
+      "source": "health",
+      "target": "health-apps"
+    },
+    {
+      "source": "social",
+      "target": "messaging"
+    },
+    {
+      "source": "social",
+      "target": "communities"
+    },
+    {
+      "source": "social",
+      "target": "social-media"
+    },
+    {
+      "source": "messaging",
+      "target": "imessage"
+    },
+    {
+      "source": "messaging",
+      "target": "facetime"
+    },
+    {
+      "source": "messaging",
+      "target": "textme"
+    },
+    {
+      "source": "messaging",
+      "target": "textfree"
+    },
+    {
+      "source": "messaging",
+      "target": "whatsapp"
+    },
+    {
+      "source": "messaging",
+      "target": "messenger"
+    },
+    {
+      "source": "messaging",
+      "target": "discord"
+    },
+    {
+      "source": "messaging",
+      "target": "slack"
+    },
+    {
+      "source": "communities",
+      "target": "skool"
+    },
+    {
+      "source": "communities",
+      "target": "mighty"
+    },
+    {
+      "source": "communities",
+      "target": "reddit"
+    },
+    {
+      "source": "communities",
+      "target": "meetup"
+    },
+    {
+      "source": "communities",
+      "target": "eventbrite"
+    },
+    {
+      "source": "communities",
+      "target": "linkedin-events"
+    },
+    {
+      "source": "communities",
+      "target": "meta-events"
+    },
+    {
+      "source": "communities",
+      "target": "faves"
+    },
+    {
+      "source": "social-media",
+      "target": "instagram"
+    },
+    {
+      "source": "social-media",
+      "target": "tiktok"
+    },
+    {
+      "source": "social-media",
+      "target": "snapchat"
+    },
+    {
+      "source": "social-media",
+      "target": "facebook"
+    },
+    {
+      "source": "social-media",
+      "target": "youtube"
+    },
+    {
+      "source": "social-media",
+      "target": "threads"
+    },
+    {
+      "source": "productivity",
+      "target": "notes"
+    },
+    {
+      "source": "productivity",
+      "target": "project-mgmt"
+    },
+    {
+      "source": "productivity",
+      "target": "automation"
+    },
+    {
+      "source": "notes",
+      "target": "notion"
+    },
+    {
+      "source": "notes",
+      "target": "obsidian"
+    },
+    {
+      "source": "notes",
+      "target": "apple-notes"
+    },
+    {
+      "source": "notes",
+      "target": "google-tasks"
+    },
+    {
+      "source": "notes",
+      "target": "reminders"
+    },
+    {
+      "source": "notes",
+      "target": "calendar"
+    },
+    {
+      "source": "project-mgmt",
+      "target": "asana"
+    },
+    {
+      "source": "project-mgmt",
+      "target": "miro"
+    },
+    {
+      "source": "project-mgmt",
+      "target": "github"
+    },
+    {
+      "source": "project-mgmt",
+      "target": "gcloud"
+    },
+    {
+      "source": "automation",
+      "target": "ifttt"
+    },
+    {
+      "source": "automation",
+      "target": "shortcuts"
+    },
+    {
+      "source": "automation",
+      "target": "scriptable"
+    },
+    {
+      "source": "automation",
+      "target": "pythonista"
+    },
+    {
+      "source": "automation",
+      "target": "fireflies"
+    },
+    {
+      "source": "finance-apps",
+      "target": "banking"
+    },
+    {
+      "source": "finance-apps",
+      "target": "payments"
+    },
+    {
+      "source": "finance-apps",
+      "target": "finance-tools"
+    },
+    {
+      "source": "banking",
+      "target": "wells-fargo"
+    },
+    {
+      "source": "banking",
+      "target": "bank-of-america"
+    },
+    {
+      "source": "payments",
+      "target": "cashapp"
+    },
+    {
+      "source": "payments",
+      "target": "venmo"
+    },
+    {
+      "source": "payments",
+      "target": "paypal"
+    },
+    {
+      "source": "payments",
+      "target": "western-union"
+    },
+    {
+      "source": "payments",
+      "target": "zelle"
+    },
+    {
+      "source": "payments",
+      "target": "square"
+    },
+    {
+      "source": "finance-tools",
+      "target": "rocket-money"
+    },
+    {
+      "source": "finance-tools",
+      "target": "acorns"
+    },
+    {
+      "source": "finance-tools",
+      "target": "plaid"
+    },
+    {
+      "source": "shopping",
+      "target": "retail"
+    },
+    {
+      "source": "shopping",
+      "target": "food"
+    },
+    {
+      "source": "shopping",
+      "target": "shipping"
+    },
+    {
+      "source": "retail",
+      "target": "amazon"
+    },
+    {
+      "source": "retail",
+      "target": "walmart"
+    },
+    {
+      "source": "retail",
+      "target": "target"
+    },
+    {
+      "source": "retail",
+      "target": "lowes"
+    },
+    {
+      "source": "retail",
+      "target": "home-depot"
+    },
+    {
+      "source": "retail",
+      "target": "office-depot"
+    },
+    {
+      "source": "retail",
+      "target": "ebay"
+    },
+    {
+      "source": "retail",
+      "target": "temu"
+    },
+    {
+      "source": "retail",
+      "target": "etsy"
+    },
+    {
+      "source": "food",
+      "target": "chickfila"
+    },
+    {
+      "source": "food",
+      "target": "dutchbros"
+    },
+    {
+      "source": "food",
+      "target": "starbucks"
+    },
+    {
+      "source": "food",
+      "target": "doordash"
+    },
+    {
+      "source": "food",
+      "target": "ubereats"
+    },
+    {
+      "source": "shipping",
+      "target": "ups"
+    },
+    {
+      "source": "shipping",
+      "target": "fedex"
+    },
+    {
+      "source": "shipping",
+      "target": "usps"
+    },
+    {
+      "source": "navigation",
+      "target": "maps"
+    },
+    {
+      "source": "navigation",
+      "target": "transport"
+    },
+    {
+      "source": "navigation",
+      "target": "housing-weather"
+    },
+    {
+      "source": "maps",
+      "target": "google-maps"
+    },
+    {
+      "source": "maps",
+      "target": "apple-maps"
+    },
+    {
+      "source": "maps",
+      "target": "yandex"
+    },
+    {
+      "source": "maps",
+      "target": "parkmobile"
+    },
+    {
+      "source": "transport",
+      "target": "uber"
+    },
+    {
+      "source": "transport",
+      "target": "lyft"
+    },
+    {
+      "source": "housing-weather",
+      "target": "apartments"
+    },
+    {
+      "source": "housing-weather",
+      "target": "weather"
+    },
+    {
+      "source": "health-apps",
+      "target": "mychart"
+    },
+    {
+      "source": "health-apps",
+      "target": "bettersleep"
+    },
+    {
+      "source": "health-apps",
+      "target": "pt-solutions"
+    },
+    {
+      "source": "health-apps",
+      "target": "noji"
+    },
+    {
+      "source": "health-apps",
+      "target": "healow"
+    },
+    {
+      "source": "health-apps",
+      "target": "lifetime"
+    },
+    {
+      "source": "health-apps",
+      "target": "weight-gurus"
+    },
+    {
+      "source": "health-apps",
+      "target": "go-kinetic"
+    },
+    {
+      "source": "health-apps",
+      "target": "elevate"
+    },
+    {
+      "source": "health-apps",
+      "target": "think-dirty"
+    },
+    {
+      "source": "learning",
+      "target": "duolingo"
+    },
+    {
+      "source": "learning",
+      "target": "mimo"
+    },
+    {
+      "source": "learning",
+      "target": "brilliant"
+    },
+    {
+      "source": "learning",
+      "target": "quizgecko"
+    },
+    {
+      "source": "learning",
+      "target": "reading"
+    },
+    {
+      "source": "entertainment",
+      "target": "streaming"
+    },
+    {
+      "source": "entertainment",
+      "target": "devices"
+    },
+    {
+      "source": "streaming",
+      "target": "netflix"
+    },
+    {
+      "source": "streaming",
+      "target": "hulu"
+    },
+    {
+      "source": "streaming",
+      "target": "max"
+    },
+    {
+      "source": "streaming",
+      "target": "prime-video"
+    },
+    {
+      "source": "streaming",
+      "target": "disney-plus"
+    },
+    {
+      "source": "streaming",
+      "target": "crunchyroll"
+    },
+    {
+      "source": "streaming",
+      "target": "youtube-streaming"
+    },
+    {
+      "source": "devices",
+      "target": "vizio"
+    },
+    {
+      "source": "devices",
+      "target": "appletv"
+    },
+    {
+      "source": "ai",
+      "target": "chatgpt"
+    },
+    {
+      "source": "ai",
+      "target": "claude"
+    },
+    {
+      "source": "ai",
+      "target": "perplexity"
+    },
+    {
+      "source": "ai",
+      "target": "rewind"
+    }
+  ]
+}

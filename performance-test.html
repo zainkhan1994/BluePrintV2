@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint Performance Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 40px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .test-result {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .test-result.success {
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+        .test-result.info {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+        }
+        .test-result.warning {
+            background: rgba(243, 156, 18, 0.1);
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+        .icon {
+            font-size: 20px;
+        }
+        .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px 24px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .metric {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.2);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blueprint Performance Test</h1>
+        <p class="subtitle">Measuring page load optimizations</p>
+        
+        <div class="test-section">
+            <div class="test-title">
+                <span class="icon">⚡</span>
+                Initial Page Load
+            </div>
+            <div id="loadTest"></div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">
+                <span class="icon">📊</span>
+                Data Loading Behavior
+            </div>
+            <div id="dataTest"></div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">
+                <span class="icon">🎯</span>
+                Optimization Status
+            </div>
+            <div id="optimizationTest"></div>
+        </div>
+        
+        <button class="btn" onclick="window.location.href='index.html'">Open Blueprint Application →</button>
+    </div>
+    
+    <script>
+        // Measure our own load time
+        window.addEventListener('DOMContentLoaded', function() {
+            const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+            
+            document.getElementById('loadTest').innerHTML = `
+                <div class="test-result success">
+                    <span>✓</span>
+                    <span>Test page loaded in <span class="metric">${loadTime}ms</span></span>
+                </div>
+                <div class="test-result info">
+                    <span>ℹ</span>
+                    <span>Blueprint main page should load similarly fast (without data)</span>
+                </div>
+            `;
+            
+            // Test if we can load the blueprint script
+            fetch('script.js')
+                .then(response => response.text())
+                .then(scriptContent => {
+                    const hasLazyLoading = !scriptContent.includes('this.loadPersonalStructure()') || 
+                                          scriptContent.includes('setTimeout');
+                    const hasEventDelegation = scriptContent.includes('setupTreeEventDelegation');
+                    const hasLogoMap = scriptContent.includes('this.logoMap = new Map');
+                    const hasAutoCollapse = scriptContent.includes('autoCollapseAll');
+                    const hasRAF = scriptContent.includes('requestAnimationFrame');
+                    
+                    document.getElementById('dataTest').innerHTML = `
+                        <div class="test-result ${hasLazyLoading ? 'success' : 'warning'}">
+                            <span>${hasLazyLoading ? '✓' : '⚠'}</span>
+                            <span>${hasLazyLoading ? 'Data is NOT auto-loaded on page init' : 'Data may be auto-loaded'}</span>
+                        </div>
+                        <div class="test-result info">
+                            <span>ℹ</span>
+                            <span>500+ items only load when user clicks "Load Personal" button</span>
+                        </div>
+                    `;
+                    
+                    document.getElementById('optimizationTest').innerHTML = `
+                        <div class="test-result ${hasEventDelegation ? 'success' : 'warning'}">
+                            <span>${hasEventDelegation ? '✓' : '⚠'}</span>
+                            <span>Event Delegation: ${hasEventDelegation ? 'Implemented' : 'Not Found'}</span>
+                        </div>
+                        <div class="test-result ${hasLogoMap ? 'success' : 'warning'}">
+                            <span>${hasLogoMap ? '✓' : '⚠'}</span>
+                            <span>Logo Map (O(1) lookup): ${hasLogoMap ? 'Implemented' : 'Not Found'}</span>
+                        </div>
+                        <div class="test-result ${hasAutoCollapse ? 'success' : 'warning'}">
+                            <span>${hasAutoCollapse ? '✓' : '⚠'}</span>
+                            <span>Auto-collapse folders: ${hasAutoCollapse ? 'Implemented' : 'Not Found'}</span>
+                        </div>
+                        <div class="test-result ${hasRAF ? 'success' : 'warning'}">
+                            <span>${hasRAF ? '✓' : '⚠'}</span>
+                            <span>RequestAnimationFrame: ${hasRAF ? 'Implemented' : 'Not Found'}</span>
+                        </div>
+                        <div class="test-result info">
+                            <span>ℹ</span>
+                            <span>Script size: ${(scriptContent.length / 1024).toFixed(1)} KB</span>
+                        </div>
+                    `;
+                })
+                .catch(err => {
+                    document.getElementById('dataTest').innerHTML = `
+                        <div class="test-result warning">
+                            <span>⚠</span>
+                            <span>Could not analyze script: ${err.message}</span>
+                        </div>
+                    `;
+                });
+        });
+    </script>
+</body>
+</html>

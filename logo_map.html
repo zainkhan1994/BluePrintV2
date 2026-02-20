@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Logo Map - Blueprint Visualizer</title>
+    <link rel="stylesheet" href="logo_map.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">App Logo Map 
+            <a href="mindmap-demo.html" style="font-size: 16px; margin-left: 15px; color: #4a9eff; text-decoration: none;" title="Try Interactive Mind Map Demo">
+                <i class="fas fa-project-diagram"></i> Interactive Demo
+            </a>
+        </h1>
+        <div class="filter-bar">
+            <input type="text" id="search" placeholder="Search apps...">
+            <div class="view-toggles">
+                <button id="grid-view" class="view-btn active">Grid View</button>
+                <button id="mind-map-view" class="view-btn">Mind Map</button>
+            </div>
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="social">Social</button>
+                <button class="filter-btn" data-filter="productivity">Productivity</button>
+                <button class="filter-btn" data-filter="finance">Finance</button>
+                <button class="filter-btn" data-filter="shopping">Shopping</button>
+                <button class="filter-btn" data-filter="navigation">Navigation</button>
+                <button class="filter-btn" data-filter="health">Health</button>
+                <button class="filter-btn" data-filter="learning">Learning</button>
+                <button class="filter-btn" data-filter="entertainment">Entertainment</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+            </div>
+        </div>
+        
+        <div id="grid-container" class="visualization-area">
+            <div class="category-section" data-category="social">
+                <h2 class="section-title">Social & Community</h2>
+                <div class="subcategory">
+                    <h3>Direct Messaging</h3>
+                    <div class="logo-grid" id="direct-messaging"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Communities & Groups</h3>
+                    <div class="logo-grid" id="communities"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Social Media</h3>
+                    <div class="logo-grid" id="social-media"></div>
+                </div>
+            </div>
+
+            <div class="category-section" data-category="productivity">
+                <h2 class="section-title">Productivity & Organization</h2>
+                <div class="subcategory">
+                    <h3>Planning & Notes</h3>
+                    <div class="logo-grid" id="planning"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Project Management</h3>
+                    <div class="logo-grid" id="project"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Automation & Tools</h3>
+                    <div class="logo-grid" id="automation"></div>
+                </div>
+            </div>
+
+            <div class="category-section" data-category="finance">
+                <h2 class="section-title">Finance & Payments</h2>
+                <div class="logo-grid" id="finance-apps"></div>
+            </div>
+
+            <div class="category-section" data-category="shopping">
+                <h2 class="section-title">Shopping & Rewards</h2>
+                <div class="subcategory">
+                    <h3>Retail</h3>
+                    <div class="logo-grid" id="retail"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Food & Coffee</h3>
+                    <div class="logo-grid" id="food"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Shipping & Tracking</h3>
+                    <div class="logo-grid" id="shipping"></div>
+                </div>
+            </div>
+
+            <div class="category-section" data-category="navigation">
+                <h2 class="section-title">Navigation & Travel</h2>
+                <div class="subcategory">
+                    <h3>Maps & Transport</h3>
+                    <div class="logo-grid" id="maps"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Housing & Weather</h3>
+                    <div class="logo-grid" id="housing"></div>
+                </div>
+            </div>
+
+            <div class="category-section" data-category="health">
+                <h2 class="section-title">Health & Fitness</h2>
+                <div class="logo-grid" id="health-apps"></div>
+            </div>
+
+            <div class="category-section" data-category="learning">
+                <h2 class="section-title">Learning & Self-Improvement</h2>
+                <div class="logo-grid" id="learning-apps"></div>
+            </div>
+
+            <div class="category-section" data-category="entertainment">
+                <h2 class="section-title">Entertainment & Media</h2>
+                <div class="subcategory">
+                    <h3>Streaming</h3>
+                    <div class="logo-grid" id="streaming"></div>
+                </div>
+                <div class="subcategory">
+                    <h3>Devices & Control</h3>
+                    <div class="logo-grid" id="devices"></div>
+                </div>
+            </div>
+
+            <div class="category-section" data-category="ai">
+                <h2 class="section-title">AI & Knowledge Tools</h2>
+                <div class="logo-grid" id="ai-tools"></div>
+            </div>
+        </div>
+        
+        <div id="mind-map-container" class="visualization-area" style="display:none">
+            <svg id="mind-map-svg" width="100%" height="900"></svg>
+        </div>
+    </div>
+
+    <div id="expanded-view" class="expanded-view">
+        <div class="expanded-content">
+            <span class="close-btn">&times;</span>
+            <img id="expanded-logo" src="" alt="">
+            <div class="expanded-details">
+                <h3 id="expanded-name"></h3>
+                <p id="expanded-path"></p>
+                <button id="use-logo-btn" class="use-btn">Use This Logo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="logo_map.js"></script>
+</body>
+</html>
