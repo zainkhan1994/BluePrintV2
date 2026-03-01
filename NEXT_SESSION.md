@@ -1,140 +1,179 @@
-# 🧠 Blueprint V2 — Next Session Checklist
-> Last saved: March 1, 2026 | Branch: `main` | Commit: `f681e2f`
+# 🧠 Blueprint V2 — Where You Are & What's Next
+> Updated: March 1, 2026 | Branch: `main`
 
 ---
 
-## ▶ HOW TO RESTART EVERYTHING
+## ✅ FRONTEND — COMPLETE
+The UI is done. Here's what's built and working:
+- Notion-style white 3-column dashboard (sidebar + list + detail panel)
+- Capture modal — add items manually
+- Review queue — Approve / Modify / Reject (422 bug fixed)
+- Mind Map view — markmap tree, logos on nodes, 4 control buttons
+- Stats bar, filter tabs, audit trail
 
-Open two terminals in `/Users/xainkhan/BluePrintV2` and run:
+**You don't need to touch the frontend anymore.**
 
-**Terminal 1 — Backend (FastAPI on port 8100):**
+---
+
+## 🔴 THE REAL GAP: Your Data Is Empty
+
+Right now the database (`backend/blueprint_memory.db`) has **1 demo item**.
+The Blueprint folders (`Accounts_Banking/`, `Health_Fitness/`, etc.) contain **only logo images** — no real content.
+
+**The app is a working shell with no data inside it.**
+This is the only thing left to build.
+
+---
+
+## ▶ HOW TO RESTART (run every session)
+
+**Terminal 1 — Backend:**
 ```bash
-cd /Users/xainkhan/BluePrintV2
-source .venv/bin/activate
-cd backend && python -m uvicorn app.main:app --host 127.0.0.1 --port 8100
+cd /Users/xainkhan/BluePrintV2/backend
+source ../.venv/bin/activate
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8100
 ```
 
-**Terminal 2 — Frontend (static server on port 8085):**
+**Terminal 2 — Frontend:**
 ```bash
 cd /Users/xainkhan/BluePrintV2
 python3 -m http.server 8085
 ```
 
-**Then open:** http://localhost:8085/classification-review-ui/
+**Open:** http://localhost:8085/classification-review-ui/
 
 ---
 
-## ✅ WHAT'S DONE (working right now)
-
-- [x] Notion-style white UI — 3-column layout (sidebar + list + detail panel)
-- [x] Capture modal — add new items via "+ Quick Capture" button
-- [x] Review queue — Approve / Modify / Reject items, 422 error fixed
-- [x] Mind Map view — markmap tree layout (click "Mind Map" in left sidebar under "Second Brain")
-  - [x] 4 toolbar buttons: ⊕ Expand All, ⊖ Collapse All, ⊡ Fit to Screen, ↺ Reset View
-  - [x] Click any node to expand/collapse its children
-  - [x] Logos displayed on nodes (from `/logos/` folder)
-  - [x] Node colors from metadata
+## 🗺️ THE 3 REMAINING PHASES
 
 ---
 
-## 🔜 NEXT STEPS (priority order)
+### PHASE 1 — Feed Your Real Data In (Do This First)
 
-### 1. 🗺️ Mind Map — Polish & Populate (HIGH)
-The mind map loads from `data/sample-mindmap.json` which only has ~10 demo nodes.
-The real data lives across all the category folders (Chase/, Wells_Fargo/, etc.).
+**Goal:** Get your actual accounts, bills, and documents into the system.
 
-**Tasks:**
-- [ ] Add all real app/account nodes to `data/sample-mindmap.json`
-  - Each folder under `Accounts_Banking/`, `Finance_Payments/`, `Health_Fitness/`, etc. = one node
-  - Each has a logo at e.g. `logos/chase.png` → set `metadata.logo: "logos/chase.png"`
-- [ ] Tune the mind map appearance:
-  - Increase `maxWidth` (currently 260) if labels get cut off
-  - Adjust `initialExpandLevel` (currently 2 = show top 2 levels on load)
-  - Try `colorFreezeLevel: 3` for more color variety
+Right now your category folders only have logos. Add `.md` files with real info:
 
-### 2. 📥 Real Ingestion Pipeline (HIGH)
-Right now there's only 1 demo item in the database.
+```
+Accounts_Banking/Chase/
+  ├── logo.png          ← already there
+  └── account.md        ← ADD THIS
+```
 
-**Tasks:**
-- [ ] Run the ingest script to load real data:
-  ```bash
-  cd /Users/xainkhan/BluePrintV2
-  source .venv/bin/activate
-  python scripts/ingest_local.py
-  ```
-- [ ] If that doesn't work, use the capture modal in the UI to add items manually
-- [ ] Add test items across different categories (Finance, Health, Personal, etc.)
-  to see the review queue fill up
+Example content for `Accounts_Banking/Chase/account.md`:
+```markdown
+# Chase Checking
+- Account ending: 4821
+- Login: chase.com
+- Auto-pays: Rent, Netflix
+- Monthly fee: none
+```
 
-### 3. 🎨 Mind Map Node Styling (MEDIUM)
-Nodes currently show a colored dot + label. Logos are loading but small.
+Do this for the folders you care about most:
+- `Accounts_Banking/` — bank + credit card details
+- `Bills_Payments/` — recurring bills, due dates, amounts
+- `Health_Fitness/` — doctors, insurance, prescriptions
+- `Daily_Life_Digital_Presence/` — social accounts, subscriptions
+- `Finance_Payments/` — Venmo, PayPal, CashApp info
 
-**Tasks:**
-- [ ] In `classification-review-ui/app.js` → `toMarkmapNode()`, try increasing logo size:
-  ```javascript
-  width:28px; height:28px;  // currently 20x20
-  ```
-- [ ] Add a tooltip or click-to-open behavior — when you click a leaf node (an app),
-  open the detail panel or a link to that app's login page
+**Then bulk-ingest everything:**
+```bash
+cd /Users/xainkhan/BluePrintV2
+source .venv/bin/activate
+python scripts/ingest_local.py --path . --source blueprint_personal
+```
 
-### 4. 📊 Dashboard Stats (MEDIUM)
-The top stats bar (`Total Items`, `Approved`, `Needs Review`, `Rejected`) is wired up
-but the counts depend on real data.
-
-**Tasks:**
-- [ ] Verify stats update correctly after approving/rejecting items
-- [ ] Add a "Today's activity" indicator
-
-### 5. 🔗 Deep Link from Mind Map → Review Panel (MEDIUM)
-When a node in the mind map is clicked (a leaf app node), it should:
-- Switch to the Review view
-- Filter/select that item in the list
-
-**Tasks:**
-- [ ] In `toMarkmapNode()`, add `onClick` behavior for app-type nodes
-- [ ] Pass the node's category to `fetchItems(status, category)` on click
-
-### 6. 🔍 Search (LOW)
-No search exists yet. Items can only be browsed by filter tabs.
-
-**Tasks:**
-- [ ] Add a search input above the list
-- [ ] On input, call `/items?search=<query>` (check if backend supports it)
-  or filter client-side on `item.title` + `item.content`
-
-### 7. 📱 Mobile / Responsive (LOW)
-The 3-column layout breaks on small screens.
+Then open the UI → Review Queue → Approve your items.
 
 ---
 
-## 🐛 KNOWN ISSUES
+### PHASE 2 — Wire Up Real AI
 
-| Issue | Status | Notes |
+**Goal:** Make Insights, Search, and Digest actually intelligent.
+
+Right now the backend uses **keyword matching only** (no LLM). These API routes exist but don't use AI:
+- `POST /insights/generate` — item summaries
+- `POST /assistant/digest` — daily briefing
+- `POST /search/semantic` — find related items
+
+**To fix this, you need one API key.** Recommended options:
+
+| Provider | Cost | Notes |
+|----------|------|-------|
+| OpenAI | ~$0.01/request | Easiest, best quality |
+| Google Gemini | Free tier | You already have experience with it |
+| Anthropic Claude | ~$0.01/request | Great for summaries |
+
+**Setup (5 min):**
+```bash
+# Add to backend/.env
+OPENAI_API_KEY=sk-your-key-here
+embedding_provider=api
+embedding_api_url=https://api.openai.com/v1/embeddings
+embedding_api_key=sk-your-key-here
+embedding_api_model=text-embedding-3-small
+```
+
+Then ask Copilot: *"Update backend/app/services/insights.py to call the OpenAI Chat API to generate real item summaries using the item content stored in the database."*
+
+---
+
+### PHASE 3 — Connect the Mind Map to Real Data
+
+**Goal:** Mind map shows your actual Blueprint structure, not the sample demo.
+
+Right now `data/sample-mindmap.json` has placeholder nodes. It should mirror your real folder structure with every account/app as a leaf node.
+
+**Auto-generate it from your folders:**
+
+Ask Copilot: *"Write a Python script at scripts/generate_mindmap.py that walks the BluePrintV2 folder structure (skipping .git, .venv, backend, scripts, classification-review-ui), finds folders with logo.png files, and generates data/sample-mindmap.json in the existing nodes+edges format. Use the folder name as the label and the relative logo.png path as metadata.logo."*
+
+Run it after you've added content in Phase 1:
+```bash
+python scripts/generate_mindmap.py
+```
+
+---
+
+## 📋 QUICKSTART CHECKLIST (do in order)
+
+```
+[ ] 1. Add account.md files to 3-5 of your most important folders
+[ ] 2. Start both servers (commands above)
+[ ] 3. Run: python scripts/ingest_local.py --path . --source blueprint_personal
+[ ] 4. Open UI → Review Queue → Approve the new items
+[ ] 5. Watch the stats bar show real numbers
+[ ] 6. Get an OpenAI or Gemini API key
+[ ] 7. Add key to backend/.env → restart backend
+[ ] 8. Ask Copilot to update insights.py to use real AI
+[ ] 9. Ask Copilot to create scripts/generate_mindmap.py
+[ ] 10. Run generate_mindmap.py → reload UI → see your real mind map
+```
+
+---
+
+## ⚡ CURRENT STATE AT A GLANCE
+
+| Layer | Status | Notes |
 |-------|--------|-------|
-| Mind map empty on first load (spinner stays) | Needs testing | If it stalls, check browser console for CORS or 404 on `data/sample-mindmap.json` |
-| Review queue shows 0 items | Expected | Only 1 demo item exists, and it's already "accepted". Add more items via capture modal |
-| Backend must be started manually | By design | No auto-start set up yet |
+| Frontend UI | ✅ Done | No changes needed |
+| Backend API | ✅ Running | All routes exist |
+| Database schema | ✅ Done | SQLite at backend/blueprint_memory.db |
+| Real personal data | ❌ Empty | Only 1 demo item — Phase 1 fixes this |
+| AI / LLM | ❌ Keyword-only | Needs API key + code update — Phase 2 |
+| Mind map data | ❌ Placeholder | Needs generate_mindmap.py — Phase 3 |
+| Semantic search | ❌ Local hash only | Fixed automatically when you add API key |
 
 ---
 
-## 📁 KEY FILES
+## 🔑 KEY FILES
 
 | File | What it does |
 |------|-------------|
-| `classification-review-ui/index.html` | Main UI shell, toolbar, mind map container |
-| `classification-review-ui/app.js` | All frontend logic — fetch, render, review actions, mind map init |
-| `classification-review-ui/styles.css` | All styles — Notion white theme, mind map container |
-| `data/sample-mindmap.json` | Mind map data — nodes + edges (needs real data populated) |
-| `logos/` | App logos served at `http://localhost:8085/logos/` |
-| `backend/app/main.py` | FastAPI routes |
-| `backend/app/schemas.py` | Pydantic request/response models |
-| `backend/app/services/classification.py` | Classification + review logic |
-
----
-
-## 💡 QUICK WINS (can do in < 15 min each)
-
-1. **Add 5 real items** via the capture modal, then approve/reject them — makes the app feel alive
-2. **Expand `sample-mindmap.json`** — copy the node pattern and add Chase, Wells Fargo, etc.
-3. **Change the app title** — search for `"Blueprint"` in `index.html` and make it your own
-
+| `classification-review-ui/app.js` | Frontend logic — complete, don't change |
+| `backend/app/services/model_assist.py` | AI scoring — needs real LLM wired in |
+| `backend/app/services/insights.py` | Insight generation — needs real LLM |
+| `backend/app/config.py` | Settings — reads from backend/.env |
+| `backend/blueprint_memory.db` | SQLite DB — your data lives here |
+| `data/sample-mindmap.json` | Mind map source — rebuild with generate_mindmap.py |
+| `scripts/ingest_local.py` | Bulk import — point at any folder |
