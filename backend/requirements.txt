@@ -5,3 +5,6 @@ pydantic-settings
 chromadb
 numpy
 python-dateutil
+PyPDF2
+python-docx
+python-magic

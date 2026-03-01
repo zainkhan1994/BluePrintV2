@@ -2,6 +2,7 @@ from datetime import datetime
 from time import perf_counter
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select, text
 from sqlalchemy.orm import Session
 
@@ -15,6 +16,8 @@ from app.schemas import (
     DigestResponse,
     ClassificationJobResponse,
     ClassificationOverrideRequest,
+    BulkClassificationOverrideRequest,
+    BulkItemResponse,
     ClassificationResponse,
     ClassificationRunRequest,
     CrossDomainBriefRequest,
@@ -147,7 +150,9 @@ from app.services.search import run_retrieval, run_semantic_search
 from app.services.classification import (
     build_classification_response,
     list_classification_needs_review,
+    list_items,
     override_item_classification,
+    bulk_approve_items,
 )
 from app.services.insights import (
     build_cross_domain_brief,
@@ -181,6 +186,17 @@ from app.services.vector_store import vector_store
 
 
 app = FastAPI(title=settings.app_name)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:8085",
+        "http://127.0.0.1:8085",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.middleware("http")
@@ -442,6 +458,44 @@ def get_classification_needing_review(
     db: Session = Depends(get_db),
 ) -> list[ClassificationResponse]:
     return list_classification_needs_review(db, limit=limit)
+
+
+@app.post("/classification/bulk-approve", response_model=list[ClassificationResponse])
+def bulk_approve_classification(
+    payload: BulkClassificationOverrideRequest,
+    db: Session = Depends(get_db),
+) -> list[ClassificationResponse]:
+    return bulk_approve_items(
+        db=db,
+        item_ids=payload.item_ids,
+        class_slug=payload.class_slug,
+        notes=payload.notes,
+    )
+
+
+@app.get("/items", response_model=BulkItemResponse)
+def get_items(
+    status: str | None = Query(default=None),
+    classification_label: str | None = Query(default=None),
+    query: str | None = Query(default=None),
+    limit: int = Query(default=50, ge=1, le=1000),
+    offset: int = Query(default=0, ge=0),
+    db: Session = Depends(get_db),
+) -> BulkItemResponse:
+    items, total = list_items(
+        db=db,
+        status=status,
+        classification_label=classification_label,
+        query=query,
+        limit=limit,
+        offset=offset,
+    )
+    return BulkItemResponse(
+        items=[ItemResponse.model_validate(i) for i in items],
+        total=total,
+        offset=offset,
+        limit=limit,
+    )
 
 
 @app.post("/insights/generate", response_model=InsightGenerateResponse)

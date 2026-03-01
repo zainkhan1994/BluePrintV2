@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from sqlalchemy import select
+from sqlalchemy import select, text
 from sqlalchemy.orm import Session
 
 from app.models import ClassDefinition, FeedbackEvent, Item, ItemClassification
@@ -345,3 +345,59 @@ def list_classification_needs_review(db: Session, limit: int = 50) -> list[Class
         return []
     items = db.execute(select(Item).where(Item.id.in_(item_ids))).scalars().all()
     return [build_classification_response(db, item) for item in items]
+
+
+def list_items(
+    db: Session,
+    status: str | None = None,
+    classification_label: str | None = None,
+    query: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> tuple[list[Item], int]:
+    stmt = select(Item)
+    if status:
+        stmt = stmt.where(Item.status == status)
+    if classification_label:
+        stmt = stmt.where(Item.classification_label == classification_label)
+    if query:
+        search_filter = (Item.title.ilike(f"%{query}%")) | (Item.content.ilike(f"%{query}%"))
+        stmt = stmt.where(search_filter)
+    
+    total = db.execute(select(text("count(*)")).select_from(stmt.subquery())).scalar() or 0
+    items = db.execute(stmt.order_by(Item.created_at.desc()).offset(offset).limit(limit)).scalars().all()
+    return list(items), total
+
+
+def bulk_approve_items(
+    db: Session,
+    item_ids: list[str],
+    class_slug: str | None = None,
+    notes: str | None = None,
+) -> list[ClassificationResponse]:
+    results = []
+    for item_id in item_ids:
+        item = db.get(Item, item_id)
+        if not item:
+            continue
+        
+        # If no slug provided, use current label or fallback
+        target_slug = class_slug
+        if not target_slug:
+            if item.classification_label:
+                # Find slug from display name if possible, else fallback
+                class_def = db.execute(select(ClassDefinition).where(ClassDefinition.display_name == item.classification_label)).scalar_one_or_none()
+                target_slug = class_def.slug if class_def else FALLBACK_CLASS_SLUG
+            else:
+                target_slug = FALLBACK_CLASS_SLUG
+        
+        resp = override_item_classification(
+            db=db,
+            item=item,
+            class_slug=target_slug,
+            action="approve",
+            confidence=1.0,
+            notes=notes or "Bulk approved",
+        )
+        results.append(resp)
+    return results

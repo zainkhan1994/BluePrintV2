@@ -4,6 +4,17 @@ import csv
 import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+import logging
+
+try:
+    import PyPDF2
+except ImportError:
+    PyPDF2 = None
+
+try:
+    import docx
+except ImportError:
+    docx = None
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -166,22 +177,69 @@ def _read_local_csv(path: Path, limit: int) -> list[dict]:
     return rows
 
 
+def _extract_pdf_text(path: Path) -> str:
+    if not PyPDF2:
+        return f"[PyPDF2 not installed. Could not extract text from {path.name}]"
+    try:
+        content = []
+        with open(path, "rb") as f:
+            reader = PyPDF2.PdfReader(f)
+            for page in reader.pages:
+                text = page.extract_text()
+                if text:
+                    content.append(text)
+        return "\n".join(content)
+    except Exception as e:
+        return f"[Error extracting PDF text: {str(e)}]"
+
+def _extract_docx_text(path: Path) -> str:
+    if not docx:
+        return f"[python-docx not installed. Could not extract text from {path.name}]"
+    try:
+        doc = docx.Document(path)
+        return "\n".join([para.text for para in doc.paragraphs])
+    except Exception as e:
+        return f"[Error extracting DOCX text: {str(e)}]"
+
 def _read_notes_dir(path: Path, limit: int, checkpoint_dt: datetime | None = None) -> list[dict]:
     rows: list[dict] = []
+    # Extension to extractor mapping
+    extractors = {
+        ".txt": lambda p: p.read_text(encoding="utf-8", errors="ignore"),
+        ".md": lambda p: p.read_text(encoding="utf-8", errors="ignore"),
+        ".pdf": _extract_pdf_text,
+        ".docx": _extract_docx_text,
+        ".json": lambda p: p.read_text(encoding="utf-8", errors="ignore"),
+    }
+    
     for file in sorted(path.rglob("*")):
         if not file.is_file():
             continue
-        if file.suffix.lower() not in {".txt", ".md"}:
+        ext = file.suffix.lower()
+        if ext not in extractors:
             continue
         if checkpoint_dt is not None and datetime.utcfromtimestamp(file.stat().st_mtime) <= checkpoint_dt:
             continue
+            
+        # Smart taxonomy mapping based on folder depth relative to root
+        try:
+            rel_path = file.relative_to(path)
+            if len(rel_path.parts) > 1:
+                taxonomy = "/".join(rel_path.parts[:-1])
+            else:
+                taxonomy = "Unsorted/Imported_Notes"
+        except Exception:
+            taxonomy = "Unsorted/Imported_Notes"
+
+        content = extractors[ext](file)
+        
         rows.append(
             {
                 "source_ref": str(file),
                 "title": file.stem,
-                "description": f"Imported from notes directory: {file.parent.name}",
-                "content": file.read_text(encoding="utf-8", errors="ignore"),
-                "taxonomy_path": "Unsorted/Imported_Notes",
+                "description": f"Imported from {file.suffix.upper()} file in: {file.parent.name}",
+                "content": content,
+                "taxonomy_path": taxonomy,
             }
         )
         if len(rows) >= limit:

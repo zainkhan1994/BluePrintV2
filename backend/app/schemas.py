@@ -218,6 +218,19 @@ class ClassificationOverrideRequest(BaseModel):
     notes: str | None = Field(default=None, max_length=2000)
 
 
+class BulkClassificationOverrideRequest(BaseModel):
+    item_ids: list[str]
+    class_slug: str | None = None  # If None, use auto-assigned label and approve
+    notes: str | None = None
+
+
+class BulkItemResponse(BaseModel):
+    items: list[ItemResponse]
+    total: int
+    offset: int
+    limit: int
+
+
 class InsightRecord(BaseModel):
     id: int
     insight_type: str
